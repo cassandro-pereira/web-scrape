@@ -5,7 +5,7 @@ import csv
 import logging
 logging.basicConfig(level=logging.INFO)
 
-print("Please enter the main domain http:// or https:// url to be analysed: ", end="")
+print("Please enter the main domain http:// or https:// url to be analyzed: ", end="")
 # Getting url from prompt
 url = input()
 domain = requests.get(url)
@@ -40,7 +40,7 @@ print (filtered_all)
 
 #Write urls to file
 print("Wrinting the URLs and emails found to output.csv file")
-logging.info('Writing the found entries to output.csv')
+logging.info('Writing found entries to output.csv')
 
 with open('output.csv', 'w', newline='') as file:
     wr = csv.writer(file, quoting=csv.QUOTE_ALL)
