@@ -12,5 +12,18 @@ html = domain.text
 #filtered information
 target_url = re.findall("(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-&?=%.]+", html)
 print(target_url)
-target_email = re.findall("\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b", html)
+target_email = re.findall("/^[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]{2,}$/gm", html)
 print(target_email)
+filtered = []
+keys = ['.com', '.net', '.io', '.html', 'htm']
+
+def clear_list(list, keys):
+    for l in list:
+        for k in keys:
+            if k in l:
+                if l not in filtered:
+                    filtered.append (l)
+
+# Filter results to get more common urls
+clear_list (target_url, keys)
+print (filtered)
