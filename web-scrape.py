@@ -16,7 +16,7 @@ html = domain.text
 target_url = re.findall("(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-&?=%.]+", html)
 logging.info('Full list of urls')
 print(target_url)
-target_email = re.findall("/^[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]{2,}$/gm", html)
+target_email = re.findall("[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]", html)
 logging.info('Full list of e-mails')
 print(target_email)
 
